@@ -39,6 +39,18 @@ class ProtocolExampleViewController: UIViewController, PullToDismissable {
         label.textAlignment = .center
 
         view.addSubview(label)
+        
+        let myButton = UIButton() // if you want to set the type use like UIButton(type: .RoundedRect) or UIButton(type: .Custom)
+        myButton.setTitle("Close without Gesture", for: .normal)
+        myButton.setTitleColor(.blue, for: .normal)
+        myButton.frame = CGRect(x: 0, y: 50, width: 200, height: 50)
+        myButton.addTarget(self, action: #selector(close(_:)), for: .touchUpInside)
+        
+        self.view.addSubview( myButton)
+    }
+    
+    @objc func close(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 }
 
